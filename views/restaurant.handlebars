@@ -1,0 +1,24 @@
+<section>
+    <div class="parent">
+     <header class="div1" style="background-image: url({{restaurant.image}})">
+         <a href="/">
+         <h1 class="div2">{{restaurant.name}}</h1>
+            </a>
+           </div>
+       <a href="/restaurants/{{restaurant.id}}/delete"> Delete</a>
+        <a href="/restaurants/{{restaurant.id}}/edit"> Edit</a>
+     </header>
+    {{#each menus}}
+        <article>
+            <h2>{{this.title}}</h2>
+            <dl>
+                {{#each this.items}}
+                    <div>
+                        <dt>{{this.name}}</dt>
+                        <dd>£{{this.price}}</dd>
+                    </div>
+                {{/each}}
+            </dl>
+        </article>
+    {{/each}}
+</section>

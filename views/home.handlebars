@@ -1,0 +1,18 @@
+
+<section class="restaurant">
+    <h1>Restaurants</h1>
+{{#each restaurants}}
+        <article >
+         <header class="hero-img" style="background-image: url({{this.image}})"></header>
+            <div class="text">
+                <a href="/restaurants/{{this.id}}">
+            <main>{{this.name}}</main>
+            </a>
+            <p>{{this.menus.length}} menus</p>
+           {{!-- <p>{{this.menus.0.items.length}} items </p> --}}
+            </div>
+
+        </article>
+    {{/each}}
+     <a href="/new">Add Restaurant</a> 
+</section>
