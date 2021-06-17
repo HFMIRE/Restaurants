@@ -31,6 +31,7 @@ app.get("/", async (req, res) => {
     ],
     nest: true,
   });
+  // console.log(restaurants);
   res.render("home", { restaurants });
 });
 
@@ -43,6 +44,7 @@ app.get("/restaurants/:id", async (req, res) => {
     include: [{ model: Item, as: "items" }],
     nest: true,
   });
+  console.log(restaurants);
   res.render("restaurant", { restaurant, menus });
 });
 
@@ -53,7 +55,7 @@ app.get("/new", async (req, res) => {
 
 // data will posted to the restaurants
 app.post("/restaurants", async (req, res) => {
-  console.log(req.body); // this is the user input for add restaurant
+  // this is the user input (req.body) for add restaurant
   // add the new row to restaurant database using user input
   await Restaurant.create(req.body);
 
@@ -68,19 +70,23 @@ app.get("/restaurants/:id/delete", (req, res) => {
     res.redirect("/");
   });
 });
-//
-app.get("/restaurants/:id/edit", async (req, res) => {
-  const restaurant = await Restaurant.findByPk(req.params.id);
-  res.render("edit", { restaurant });
-});
 
-app.post("/restaurants/", async (req, res) => {
+app.get("/restaurants/:id/edit", async (req, res) => {
+  // connect the
+  res.render("edit");
+});
+// data will posted to the restaurants
+app.post("/restaurants/:id/edit", async (req, res) => {
+  // finds the restaurants id = to the :id in the route
   const restaurant = await Restaurant.findByPk(req.params.id);
-  console.log(req.body);
+  // this is the user input for add restaurant
   await Restaurant.update(req.body);
-  console.log(await Restaurant.update(req.body));
+  await Restaurant.reload();
+  console.log(req.body);
+  // add the update add row to restaurant database using user input
   res.redirect(`/restaurants/${restaurant.id}`);
 });
+
 // intialise expresss to listen to port 3000
 app.listen(port, async () => {
   const restaurants = await Restaurant.findAll();

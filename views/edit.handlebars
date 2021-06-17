@@ -1,36 +1,12 @@
 <section>
-  <form action="/restaurants" method="POST">
-   <label class='title'>Title</label> <br>
-<input type="checkbox" id="menu1" name="menu1" value="Grill">
-<label for="menu1"> Grill</label><br>
-<input type="checkbox" id="menu2" name="menu2" value="Cold Mezza/Starters	">
-<label for="menu2"> Cold Mezza/Starters	</label><br>
-<input type="checkbox" id="menu3" name="menu3" value="Afternoon tea	">
-<label for="menu3"> Afternoon tea	</label><br> 
-<input type="checkbox" id="menu4" name="menu4" value="Breakfast ">
-<label for="menu4"> Breakfast	</label><br> 
-<input type="checkbox" id="menu5" name="menu5" value="A La Carte">
-<label for="menu5">A La Carte	 	</label><br> 
-<input type="checkbox" id="menu6" name="menu6" value="Oysters	">
-<label for="menu6"> Oysters	</label><br> 
-<input type="checkbox" id="menu7" name="menu7" value="Mains	">
-<label for="menu7"> Mains	</label><br> 
-<input type="checkbox" id="menu7" name="menu7" value="Lunch	">
-<label for="menu7"> Lunch 	</label><br> 
-<input type="checkbox" id="menu8" name="menu8" value="Brunch	">
-<label for="menu8"> Brunch 	</label><br> 
-<input type="checkbox" id="menu9" name="menu9" value="Desserts	">
-<label for="menu9">	Desserts</label><br> 
-
-   </label><br>
-    
+<h2> Change Restaurant</h2>
+<form action="/restaurants/:id/edit" method="POST">
     <label class='name'>Name:</label><br>
     <input  type="text" name="name" required placeholder="Name"><br>
 
-    <label class="price">Price</label><br>
-    <input type="INT" name="price" required placeholder="Price"><br><br>
+    <label class="image">Image:</label><br>
+    <input type="url" name="image" required placeholder="Image URl"><br><br>
 
     <input type="submit" value="Submit">
 </form>
-
 </section>
