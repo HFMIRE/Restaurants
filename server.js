@@ -87,7 +87,7 @@ app.post("/restaurants/:id/edit", async (req, res) => {
 });
 
 // intialise expresss to listen to port 3000
-app.listen(port, async () => {
+app.listen(process.env.PORT || port, async () => {
   const restaurants = await Restaurant.findAll();
   if (restaurants.length === 0) {
     populateDB();
