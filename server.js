@@ -44,7 +44,6 @@ app.get("/restaurants/:id", async (req, res) => {
     include: [{ model: Item, as: "items" }],
     nest: true,
   });
-  console.log(restaurants);
   res.render("restaurant", { restaurant, menus });
 });
 
